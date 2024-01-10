@@ -92,4 +92,13 @@ $basket->addItem($wine);
 // Display the basket contents
 $basket->displayBasket();
 
+// Calculate and display the total cost of the basket
+$totalCost = $basket->calculateTotalCost();
+echo "\nTotal Cost: €{$totalCost}\n";
+
+// Calculate and display the total tax amount
+$totalTax = $basket->calculateTotalTax();
+echo "\nTotal Tax: €{$totalTax}\n";
+
+
 ?>
