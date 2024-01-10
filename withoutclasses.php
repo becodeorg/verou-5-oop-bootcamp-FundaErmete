@@ -38,4 +38,22 @@ echo "Basket Contents:\n";
 foreach ($basket as $item => $details) {
     echo "{$details['quantity']} {$item}(s) - €{$details['price']} each\n";
 }
+
+// Calculate and display the total cost of the basket
+$totalCost = calculateTotalCost($basket);
+echo "\nTotal Cost: €{$totalCost}\n";
+
+// Calculate and display the tax amount for each item
+echo "\nTax Breakdown:\n";
+foreach ($basket as $item => $details) {
+    $taxAmount = calculateTax($item, $details['quantity'], $details['price']);
+    echo "{$details['quantity']} {$item}(s) - Tax: €{$taxAmount}\n";
+}
+
+// Calculate and display the overall tax amount
+$totalTax = array_sum(array_map(function ($item) use ($basket) {
+    return calculateTax($item, $basket[$item]['quantity'], $basket[$item]['price']);
+}, array_keys($basket)));
+
+echo "\nTotal Tax: €{$totalTax}\n";
 ?>
