@@ -40,4 +40,40 @@ class BasketItem {
     }
 }
 
+class Basket {
+    private $items = [];
+
+    public function addItem(BasketItem $item) {
+        $this->items[] = $item;
+    }
+
+    public function calculateTotalCost() {
+        $totalCost = 0;
+
+        foreach ($this->items as $item) {
+            $totalCost += $item->getTotalCost();
+        }
+
+        return $totalCost;
+    }
+
+    public function calculateTotalTax() {
+        $totalTax = 0;
+
+        foreach ($this->items as $item) {
+            $totalTax += $item->getTax();
+        }
+
+        return $totalTax;
+    }
+
+    public function displayBasket() {
+        echo "Basket Contents:\n";
+
+        foreach ($this->items as $item) {
+            echo "{$item->getQuantity()} {$item->getName()}(s) - €{$item->getPrice()} each\n";
+        }
+    }
+}
+
 ?>
