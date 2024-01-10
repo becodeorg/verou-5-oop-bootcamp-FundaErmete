@@ -32,4 +32,10 @@ function calculateTax($item, $quantity, $price)
     // Calculate and return the tax amount
     return $quantity * $price * $taxRate;
 }
+
+// Display the items in the basket and their quantities
+echo "Basket Contents:\n";
+foreach ($basket as $item => $details) {
+    echo "{$details['quantity']} {$item}(s) - €{$details['price']} each\n";
+}
 ?>
