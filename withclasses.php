@@ -76,4 +76,20 @@ class Basket {
     }
 }
 
+// Create basket items
+$banana = new BasketItem('Bananas', 6, 1);
+$apple = new BasketItem('Apples', 3, 1.5);
+$wine = new BasketItem('Bottles_of_wine', 2, 10);
+
+// Create a basket
+$basket = new Basket();
+
+// Add items to the basket
+$basket->addItem($banana);
+$basket->addItem($apple);
+$basket->addItem($wine);
+
+// Display the basket contents
+$basket->displayBasket();
+
 ?>
